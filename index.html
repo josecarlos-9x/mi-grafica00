@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+  <script>
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var data = google.visualization.arrayToDataTable([
+        ['Entidad', '2018'],
+        ['Aguascalientes', 26.20],
+        ['Baja California', 23.30],
+        ['Baja California Sur', 18.10],
+        ['Campeche', 46.20],
+        ['Coahuila', 22.50],
+        ['Colima', 30.90],
+        ['Chiapas', 76.40],
+        ['Chihuahua', 26.30],
+        ['Ciudad de México', 30.60],
+        ['Durango', 37.30],
+        ['Guanajuato', 43.40],
+        ['Guerrero', 66.50],
+        ['Hidalgo', 43.80],
+        ['Jalisco', 28.40],
+        ['México', 42.70],
+        ['Michoacán', 46.00],
+        ['Morelos', 50.80],
+        ['Nayarit', 34.80],
+        ['Nuevo León', 14.50],
+        ['Oaxaca', 66.40],
+        ['Puebla', 58.90],
+        ['Querétaro', 27.60],
+        ['Quintana Roo', 27.60],
+        ['San Luis Potosí', 43.40],
+        ['Sinaloa', 30.90],
+        ['Sonora', 28.20],
+        ['Tabasco', 53.60],
+        ['Tamaulipas', 35.10],
+        ['Tlaxcala', 48.40],
+        ['Veracruz', 61.80],
+        ['Yucatán', 40.80],
+        ['Zacatecas', 46.80]
+      ]);
+
+      var options = {
+        title: 'Porcentaje de Pobreza por Entidad Federativa (2018)',
+        width: 1000,
+        height: 900,
+        legend: { position: 'none' },
+        bars: 'horizontal',
+        hAxis: {
+          title: 'Porcentaje',
+          viewWindow: { min: 0, max: 100 }
+        },
+        vAxis: {
+          title: 'Entidad Federativa'
+        },
+        colors: ['#1a237e']  // azul fuerte
+      };
+
+      var chart = new google.visualization.BarChart(
+        document.getElementById('barchart')
+      );
+
+      chart.draw(data, options);
+    }
+  </script>
+</head>
+<body>
+  <div id="barchart"></div>
+</body>
+</html>
